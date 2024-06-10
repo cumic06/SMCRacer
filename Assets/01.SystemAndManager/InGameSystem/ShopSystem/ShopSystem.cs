@@ -64,7 +64,15 @@ public class ShopSystem : MonoSingleton<ShopSystem>
             shopCamera.SetActive(false);
             InGameCanvas.SetActive(true);
             SoundSystem.Instance.ShopPlay(false);
-            InGameUIManager.Instance.StartCoroutine(InGameUIManager.Instance.CountDownText());
+
+            if (GameManager.Instance.gameState != GameState.GameClear)
+            {
+                InGameUIManager.Instance.StartCoroutine(InGameUIManager.Instance.CountDownText());
+            }
+            else
+            {
+                MoneyManager.Instance.AddMoney(GameManager.Instance.clearMoney);
+            }
         }
     }
 }

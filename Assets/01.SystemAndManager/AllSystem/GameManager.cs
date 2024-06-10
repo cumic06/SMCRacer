@@ -23,7 +23,6 @@ public class GameManager : MonoSingleton<GameManager>
         {
             ScoreManager.Instance.AddScore((int)((TimeManager.Instance.Min * 60) + (TimeManager.Instance.time * 100)));
             ScoreManager.Instance.AddTotalScore();
-            MoneyManager.Instance.AddMoney(clearMoney);
             if (SceneManager.GetActiveScene().buildIndex != 3)
             {
                 gameState = GameState.GameClear;
